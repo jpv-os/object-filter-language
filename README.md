@@ -1,2 +1,2 @@
-# Object Filter Language
+Object Filter Language
 ===

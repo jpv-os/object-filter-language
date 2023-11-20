@@ -1,0 +1,36 @@
+{
+  "name": "tree-sitter-object-filter-language",
+  "version": "0.0.1",
+  "description": "tree-sitter parser for the Object Filter Language",
+  "author": "https://github.com/jpv-os",
+  "license": "Unlicensed",
+  "main": "bindings/node",
+  "scripts": {
+    "postinstall": "npm run generate",
+    "clean": "rm -rf bindings src binding.gyp Cargo.toml Cargo.lock",
+    "generate": "./node_modules/.bin/tree-sitter generate",
+    "pretest": "npm run generate",
+    "test": "./node_modules/.bin/tree-sitter test",
+    "posttest": "npm run examples:highlight && npm run examples:parse",
+    "examples:parse": "./node_modules/.bin/tree-sitter parse 'examples/**/*' --quiet --stat",
+    "examples:highlight": "./node_modules/.bin/tree-sitter highlight 'examples/**/*' --quiet"
+  },
+  "dependencies": {
+    "nan": "^2.18.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.ofl",
+      "file-types": [
+        "ofl"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injection-regex": "^(ofl)$"
+    }
+  ]
+}

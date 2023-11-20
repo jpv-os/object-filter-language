@@ -1,0 +1,12 @@
+====================
+Condition
+====================
+
+value=42
+
+---
+
+(condition
+    (identifier)
+    (operator)
+    (number))
