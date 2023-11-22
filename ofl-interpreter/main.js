@@ -1,42 +1,22 @@
 const Parser = require('tree-sitter');
 const ObjectFilterLanguage = require('tree-sitter-object-filter-language');
 const fs = require('fs');
+const interpret = require('./interpret');
 
+// Read source code from file
+const sourceFile = process.argv[2];
+const sourceCode = fs.readFileSync(sourceFile).toString();
+
+// Create parser
 const parser = new Parser();
 parser.setLanguage(ObjectFilterLanguage);
 
-const sourceCode = fs.readFileSync('example.ofl').toString()
+// Parse source code
 const tree = parser.parse(sourceCode);
+const root = tree.rootNode;
 
-function interpretNode(node) {
-    switch (node.type) {
-        case "condition":
-            return {
-                type: "condition",
-                identifier: interpretNode(node.children[0]),
-                operator: interpretNode(node.children[1]),
-                number: interpretNode(node.children[2]),
-            }
-        case "identifier":
-            return {
-                type: "identifier",
-                value: node.text,
-            }
-        case "operator":
-            return {
-                type: "operator",
-                value: node.text,
-            }
-        case "number":
-            return {
-                type: "number",
-                value: parseInt(node.text),
-            }
-        default:
-            throw new Error(`Unknown node type: ${node.type}`);
-    }
-}
+// Interpret syntax tree
+const result = interpret(root);
 
-const result = interpretNode(tree.rootNode);
-
+// Print result
 console.log(result);
