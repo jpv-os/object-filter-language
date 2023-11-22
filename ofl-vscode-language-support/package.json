@@ -1,0 +1,25 @@
+{
+  "name": "ofl-vscode-language-support",
+  "displayName": "ofl-vscode-language-support",
+  "description": "VSCode language support for the Object Filter Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "ofl",
+      "aliases": ["Object Filter Language", "ofl"],
+      "extensions": ["ofl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "ofl",
+      "scopeName": "source.ofl",
+      "path": "./syntaxes/ofl.tmLanguage.json"
+    }]
+  }
+}
