@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "author": "https://github.com/jpv-os",
-  "license": "Unlicensed",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "preinstall": "npm install ../tree-sitter-object-filter-language",

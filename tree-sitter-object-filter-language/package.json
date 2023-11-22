@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "tree-sitter parser for the Object Filter Language",
   "author": "https://github.com/jpv-os",
-  "license": "Unlicensed",
+  "license": "MIT",
   "main": "bindings/node",
   "scripts": {
     "postinstall": "npm run generate",
