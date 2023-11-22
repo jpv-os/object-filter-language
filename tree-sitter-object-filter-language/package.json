@@ -12,8 +12,8 @@
     "pretest": "npm run generate",
     "test": "./node_modules/.bin/tree-sitter test",
     "posttest": "npm run examples:highlight && npm run examples:parse",
-    "examples:parse": "./node_modules/.bin/tree-sitter parse 'examples/**/*' --quiet --stat",
-    "examples:highlight": "./node_modules/.bin/tree-sitter highlight 'examples/**/*' --quiet"
+    "examples:highlight": "./node_modules/.bin/tree-sitter highlight 'examples/**/*' --quiet",
+    "examples:parse": "./node_modules/.bin/tree-sitter parse 'examples/**/*' --quiet --stat"
   },
   "dependencies": {
     "nan": "^2.18.0"

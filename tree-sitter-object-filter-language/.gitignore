@@ -1,5 +1,6 @@
 .idea/
 bindings/
+build/
 node_modules/
 src/
 binding.gyp
