@@ -5,89 +5,10 @@ Object Filter Language
 
 ---
 
-# Development
-
-Current Goals:
-- [x] Write simple grammar in tree-sitter
-- [ ] Figure out node-tree-sitter to be able to use the grammar in JS
-  - Problem: node-tree-sitter doesn't support the Fields API, which would make implementation tremendously more difficult 
-- [ ] Write simple tmLanguage file for VSCode
----
 
 # Installation
 
-## Requirements
-
-- [Node.js](https://nodejs.org/en/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- Any C compiler
-  - see: https://tree-sitter.github.io/tree-sitter/creating-parsers#dependencies
-
-## Build projects in this repository
-
-First, build the tree-sitter grammar and generate tree-sitter bindings.
-
-```bash
-cd tree-sitter-object-filter-language
-npm install
-npm run generate
-```
-
-Next, build the CLI program.
-
-```bash
-cd ofl-cli
-npm install
-```
-
-## Install tree-sitter
-
-The code snippets in this README use the tree-sitter CLI.
-You may install tree-sitter globally on your machine by running:
-
-```bash
-npm install -g tree-sitter-cli
-tree-sitter --help
-```
-
-Alternatively, you can use the tree-sitter CLI from the locally installed `node_modules` or use `npx`.
-
-```bash
-# using locally installed tree-sitter CLI
-./tree-sitter-object-filter-language/node_modules/.bin/tree-sitter --help
-```
-
-```bash
-# using npx
-npx tree-sitter --help
-```
-
-For tree-sitter syntax highlighting to work on your system, 
-you need to initialize the local tree-sitter configuration.
-
-Set up your local tree-sitter configuration by running this command:
-
-```bash
-tree-sitter init-config
-# Expected output:
-# Saved initial configuration to <PATH_TO_CONFIG>/tree-sitter/config.json
-```
-
-Now, add the following to your local tree-sitter configuration file `<PATH_TO_CONFIG>/tree-sitter/config.json`. 
-Doing so registers the `tree-sitter-object-filter-language` parser with the local tree-sitter CLI
-and enables syntax highlighting for files with the `.ofl` extension.
-
-```
-{
-  "parser-directories": [
-    // ...
-    "<PATH_TO_THIS_REPOSITORY_ROOT>"
-  ],
-  // ...
-}
-```
-
-See https://tree-sitter.github.io/tree-sitter/syntax-highlighting#paths for more information about syntax highlighting configuration.
+Follow the steps described in the [Installation Guide](INSTALL.md) to be able to use the tools provided in this repository.
 
 ---
 
@@ -132,31 +53,41 @@ node ofl-cli/src/ofl.js interpret $SOURCE_FILE
 ## Open VSCode with language support extension
 
 Go to project root and open VSCode.
-Then, press F5 to open another VSCode instance with the extension loaded.
+Then, run the project (by pressing `F5`) to open a new instance of VSCode with the extension loaded.
 
 ```bash
 cd ofl-vscode-language-support
 code .
+# Press F5 to run the extension
 ```
 
 ---
 
-# Work in Progress
+# Development
+
+Current Goals:
+- [x] Write simple grammar in tree-sitter
+- [ ] Figure out node-tree-sitter to be able to use the grammar in JS
+  - Problem: node-tree-sitter doesn't support the Fields API, which would make implementation tremendously more difficult
+- [ ] Write simple tmLanguage file for VSCode
 
 ## Todo List
 
-- [ ] README: modules in this repository
 - [ ] Grammar
+  - [x] Parser
   - [ ] Parser unit tests
   - [ ] Highlighter unit tests
+- [ ] Interpreter
 - [ ] VSCode Support
   - [ ] Syntax Highlighting
-    - [ ] [TextMate Grammar](ofl-vscode-language-support/syntaxes/ofl.tmLanguage.json)
+    - [x] [TextMate Grammar](ofl-vscode-language-support/syntaxes/ofl.tmLanguage.json)
     - [ ] [Language Configuration](ofl-vscode-language-support/language-configuration.json)
   - [ ] Language Server
 - [ ] Intellij Support
   - [ ] Syntax Highlighting
   - [ ] Language Server
+- [ ] Linter/Formatter
+- [ ] CLI Tool
 
 ## Resources
 

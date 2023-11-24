@@ -90,7 +90,7 @@ module.exports = grammar({
     close_paren: $ => ")",
     _whitespace: $ => /\s+/,
 
-    comment: $ => /#.*\n/
+    comment: $ => /#.*\n/,
   },
   extras: $ => [
     $._whitespace,

@@ -25,18 +25,21 @@
 		},
 		{
 			"include": "#binary_operator"
+		},
+		{
+			"include": "#model_name"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ofl",
-				"match": "\\b(filter:|and|or|not|one|to|many)\\b"
+				"match": "\\b(filter:|and|or|not|one|to|many|\\.)\\b"
 			}]
 		},
 		"types": {
 			"patterns": [{
-				"name": "support.type.ofl",
+				"name": "storage.type.ofl",
 				"match": "\\b(string|number|boolean|date|relation)\\b"
 			}]
 		},
@@ -70,6 +73,10 @@
 		"binary_operator": {
 			"name": "keyword.operator.ofl",
 			"match": "\\b(!=|>=|>|<|<=|=)\\b"
+		},
+		"model_name": {
+			"name": "entity.name.type.ofl",
+			"match": "\\b[A-Z][a-zA-Z0-9]*\\b"
 		}
 	},
 	"scopeName": "source.ofl"

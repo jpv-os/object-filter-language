@@ -1,4 +1,3 @@
-
 Post {
     id       number
     title    string
