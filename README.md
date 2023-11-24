@@ -5,6 +5,15 @@ Object Filter Language
 
 ---
 
+# Development
+
+Current Goals:
+- [x] Write simple grammar in tree-sitter
+- [ ] Figure out node-tree-sitter to be able to use the grammar in JS
+  - Problem: node-tree-sitter doesn't support the Fields API, which would make implementation tremendously more difficult 
+- [ ] Write simple tmLanguage file for VSCode
+---
+
 # Installation
 
 ## Requirements
@@ -84,13 +93,13 @@ See https://tree-sitter.github.io/tree-sitter/syntax-highlighting#paths for more
 
 # Usage
 
-## Run example program
+## Parse example file
 
-Use the ofl-cli to evaluate a file passed as argument.
+Use the tree-sitter CLI to parse a file passed as argument.
 
 ```bash
 SOURCE_FILE=examples/example.ofl
-node ofl-cli/ofl.js $SOURCE_FILE
+tree-sitter parse $SOURCE_FILE
 ```
 
 ## Highlight example file
@@ -109,6 +118,15 @@ Use the tree-sitter-object-filter-language to test the parser and highlighter im
 ```bash
 cd tree-sitter-object-filter-language
 npm run test
+```
+
+## Run example program
+
+Use the ofl-cli to interpret a file passed as argument.
+
+```bash
+SOURCE_FILE=examples/example.ofl
+node ofl-cli/src/ofl.js interpret $SOURCE_FILE
 ```
 
 ## Open VSCode with language support extension

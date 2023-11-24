@@ -22,9 +22,15 @@
 (filter_keyword) @function.builtin
 
 [
+  (cardinality)
+  (to_keyword)
+] @function.builtin
+
+[
   (logical_and)
   (logical_or)
   (logical_not)
-  ] @function.builtin
+  (dot)
+] @function.builtin
 
 (comment) @comment

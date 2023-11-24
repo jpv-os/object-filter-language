@@ -9,13 +9,13 @@ Post {
     # comment in model
     created  date
     archived boolean
-    author   relation many-to-one Author
+    author   relation Author many to one
 }
 
 Author {
     id      number
     name    string
-    posts   relation one-to-many Post
+    posts   relation Post one to many
 }
 
 
@@ -55,7 +55,10 @@ created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
         (property_name)
         (property_type
           (relation_type
-            (model_name)))))
+            (model_name)
+              (cardinality)
+              (to_keyword)
+              (cardinality)))))
     (close_brace))
   (model_definition
     (model_name)
@@ -73,20 +76,25 @@ created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
         (property_name)
         (property_type
           (relation_type
-            (model_name)))))
+              (model_name)
+                (cardinality)
+                (to_keyword)
+                (cardinality)))))
     (close_brace))
-  (filter_keyword)
-  (filter_target
-    (model_name))
+
   (filter
-    (expression
+    (filter_keyword)
+    (filter_target
+      (model_name))
+    (filter_definition
+      (expression
        (binary_expression
           (expression
             (binary_expression
               (expression
                 (primary_expression
                   (condition
-                    (property_name)
+                    (property_path (property_name))
                     (binary_operator)
                     (date))))
               (logical_and)
@@ -98,14 +106,14 @@ created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
                       (expression
                         (primary_expression
                           (condition
-                            (property_name)
+                            (property_path (property_name))
                             (binary_operator)
                             (boolean))))
                       (logical_or)
                       (expression
                         (primary_expression
                           (condition
-                            (property_name)
+                            (property_path (property_name))
                             (binary_operator)
                             (number))))))
                   (close_paren)))))
@@ -116,7 +124,8 @@ created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
               (expression
                 (primary_expression
                   (condition
-                    (property_name)
+                    (property_path
+                      (property_name))
                     (binary_operator)
-                    (boolean))))))))))
+                    (boolean)))))))))))
 
