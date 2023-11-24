@@ -6,15 +6,10 @@
   "license": "MIT",
   "main": "bindings/node",
   "scripts": {
-    "postinstall": "npm run generate",
-    "clean": "rm -rf bindings src binding.gyp Cargo.toml Cargo.lock",
+    "clean": "rm -rf bindings build src binding.gyp Cargo.toml Cargo.lock",
     "generate": "./node_modules/.bin/tree-sitter generate",
     "pretest": "npm run generate",
-    "test": "./node_modules/.bin/tree-sitter test",
-    "posttest": "npm run examples",
-    "examples": "npm run examples:highlight && npm run examples:parse",
-    "examples:highlight": "./node_modules/.bin/tree-sitter highlight 'examples/**/*' --quiet",
-    "examples:parse": "./node_modules/.bin/tree-sitter parse 'examples/**/*' --quiet --stat"
+    "test": "./node_modules/.bin/tree-sitter test"
   },
   "dependencies": {
     "nan": "^2.18.0"

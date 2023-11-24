@@ -3,6 +3,8 @@ const ObjectFilterLanguage = require('tree-sitter-object-filter-language');
 const fs = require('fs');
 const interpret = require('./interpret');
 
+throw new Error("Not implemented");
+
 // Read source code from file
 const sourceFile = process.argv[2];
 const sourceCode = fs.readFileSync(sourceFile).toString();

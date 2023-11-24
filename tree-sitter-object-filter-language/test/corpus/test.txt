@@ -1,0 +1,119 @@
+====================
+Test
+====================
+
+Post {
+    id       number
+    title    string
+    text     string
+    created  date
+    archived boolean
+    author   relation many-to-one Author
+}
+
+Author {
+    id      number
+    name    string
+    posts   relation one-to-many Post
+}
+
+
+filter:Post
+
+created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
+
+---
+(source
+  (model_definition
+    (model_name)
+    (open_brace)
+    (model_properties
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (relation_type
+            (model_name)))))
+    (close_brace))
+  (model_definition
+    (model_name)
+    (open_brace)
+    (model_properties
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (field_type)))
+      (property_definition
+        (property_name)
+        (property_type
+          (relation_type
+            (model_name)))))
+    (close_brace))
+  (filter_keyword)
+  (filter_target
+    (model_name))
+  (filter
+    (expression
+       (binary_expression
+          (expression
+            (binary_expression
+              (expression
+                (primary_expression
+                  (condition
+                    (property_name)
+                    (binary_operator)
+                    (date))))
+              (logical_and)
+              (expression
+                (primary_expression
+                  (open_paren)
+                  (expression
+                    (binary_expression
+                      (expression
+                        (primary_expression
+                          (condition
+                            (property_name)
+                            (binary_operator)
+                            (boolean))))
+                      (logical_or)
+                      (expression
+                        (primary_expression
+                          (condition
+                            (property_name)
+                            (binary_operator)
+                            (number))))))
+                  (close_paren)))))
+          (logical_or)
+          (expression
+            (unary_expression
+              (logical_not)
+              (expression
+                (primary_expression
+                  (condition
+                    (property_name)
+                    (binary_operator)
+                    (boolean))))))))))
+

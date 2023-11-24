@@ -5,10 +5,7 @@
   "author": "https://github.com/jpv-os",
   "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "preinstall": "npm install ../tree-sitter-object-filter-language",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "dependencies": {
     "tree-sitter": "^0.20.6",

@@ -1,1 +1,21 @@
-hello=42
+
+Post {
+    id       number
+    title    string
+    text     string
+    created  date
+    archived boolean
+    author   relation many-to-one Author
+}
+
+Author {
+    id      number
+    name    string
+    posts   relation one-to-many Post
+}
+
+
+filter:Post
+
+created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
+
