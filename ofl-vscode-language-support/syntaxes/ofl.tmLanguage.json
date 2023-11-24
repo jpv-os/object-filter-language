@@ -6,17 +6,41 @@
 			"include": "#keywords"
 		},
 		{
-			"include": "#strings"
+			"include": "#types"
+		},
+		{
+			"include": "#date"
+		},
+		{
+			"include": "#string"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#boolean"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#binary_operator"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ofl",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(filter:|and|or|not|one|to|many)\\b"
 			}]
 		},
-		"strings": {
+		"types": {
+			"patterns": [{
+				"name": "support.type.ofl",
+				"match": "\\b(string|number|boolean|date|relation)\\b"
+			}]
+		},
+		"string": {
 			"name": "string.quoted.double.ofl",
 			"begin": "\"",
 			"end": "\"",
@@ -26,6 +50,26 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"number": {
+			"name": "constant.numeric.ofl",
+			"match": "\\b[0-9]+\\b"
+		},
+		"boolean": {
+			"name": "constant.language.ofl",
+			"match": "\\b(true|false)\\b"
+		},
+		"date": {
+			"name": "constant.language.ofl",
+			"match": "\\b[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\b"
+		},
+		"comment": {
+			"name": "comment.line.number-sign.ofl",
+			"match": "#.*$"
+		},
+		"binary_operator": {
+			"name": "keyword.operator.ofl",
+			"match": "\\b(!=|>=|>|<|<=|=)\\b"
 		}
 	},
 	"scopeName": "source.ofl"
