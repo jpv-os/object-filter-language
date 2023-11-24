@@ -27,4 +27,4 @@
   (logical_not)
   ] @function.builtin
 
-;(comment) @comment
+(comment) @comment

@@ -24,10 +24,10 @@ npm install
 npm run generate
 ```
 
-Next, build the interpreter program.
+Next, build the CLI program.
 
 ```bash
-cd ofl-interpreter
+cd ofl-cli
 npm install
 ```
 
@@ -86,11 +86,11 @@ See https://tree-sitter.github.io/tree-sitter/syntax-highlighting#paths for more
 
 ## Run example program
 
-Use the interpreter to evaluate a file passed as argument.
+Use the ofl-cli to evaluate a file passed as argument.
 
 ```bash
-SOURCE_FILE=example.ofl
-node ofl-interpreter/main.js $SOURCE_FILE
+SOURCE_FILE=examples/example.ofl
+node ofl-cli/ofl.js $SOURCE_FILE
 ```
 
 ## Highlight example file
@@ -98,7 +98,7 @@ node ofl-interpreter/main.js $SOURCE_FILE
 Use the tree-sitter CLI to highlight a file passed as argument.
 
 ```bash
-SOURCE_FILE=example.ofl
+SOURCE_FILE=examples/example.ofl
 tree-sitter highlight $SOURCE_FILE
 ``` 
 

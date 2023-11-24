@@ -1,11 +1,12 @@
 ====================
 Test
 ====================
-
+# top level comment
 Post {
     id       number
     title    string
     text     string
+    # comment in model
     created  date
     archived boolean
     author   relation many-to-one Author
@@ -24,6 +25,7 @@ created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
 
 ---
 (source
+  (comment)
   (model_definition
     (model_name)
     (open_brace)
@@ -40,6 +42,7 @@ created>2023-01-01T00:00:00 and (archived=false or id<10) or not archived=true
         (property_name)
         (property_type
           (field_type)))
+      (comment)
       (property_definition
         (property_name)
         (property_type

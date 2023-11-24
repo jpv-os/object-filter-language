@@ -9,7 +9,7 @@ Post {
 }
 
 Author {
-    id      number
+    id      number # this is a comment
     name    string
     posts   relation one-to-many Post
 }

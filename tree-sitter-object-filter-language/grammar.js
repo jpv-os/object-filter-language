@@ -1,7 +1,10 @@
 module.exports = grammar({
-    name: 'objectFilterLanguage',
+    name: 'ObjectFilterLanguage',
     rules: {
-        source: $ => seq(repeat($.model_definition), $.filter_keyword, $.filter_target, $.filter),
+        source: $ => seq(
+          field("model_definitions", repeat($.model_definition)),
+          field("filter", $.filter),
+        ),
         model_definition: $ => seq(
             $.model_name,
             $.open_brace,
@@ -29,10 +32,14 @@ module.exports = grammar({
         ),
 
 
-
+        filter: $ => seq(
+          $.filter_keyword,
+          field("target", $.filter_target),
+          field("definition", $.filter_definition)
+        ),
         filter_keyword: $ => "filter:",
         filter_target: $ => $.model_name,
-        filter: $ => $.expression,
+        filter_definition: $ => $.expression,
         expression: $ => choice(
             $.primary_expression,
             $.unary_expression,
@@ -68,15 +75,17 @@ module.exports = grammar({
         boolean: $ => choice("true", "false"),
         date: $ => /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/,
         string: $ => /"[^"]*"/,
+        dot: $ => ".",
         open_brace: $ => "{",
         close_brace: $ => "}",
         open_paren: $ => "(",
         close_paren: $ => ")",
+        _whitespace: $ => /\s+/,
+
+        comment: $ => /#.*\n/,
     },
     extras: $ => [
-        // whitespace
-        /\s/,
-        // comments
-        /#.*\n/,
+      $._whitespace,
+      $.comment,
     ],
 });
