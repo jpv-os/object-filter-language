@@ -32,6 +32,8 @@ SOURCE_FILE=examples/example.ofl
 tree-sitter highlight $SOURCE_FILE
 ``` 
 
+See the [example screenshot](examples/tree-sitter-highlighting.png) for the expected output.
+
 ## Run language tests
 
 Use the tree-sitter-object-filter-language to test the parser and highlighter implementations.
@@ -60,6 +62,8 @@ cd ofl-vscode-language-support
 code .
 # Press F5 to run the extension
 ```
+
+See the [example screenshot](examples/vscode-highlighting.png) for the expected output.
 
 ---
 
