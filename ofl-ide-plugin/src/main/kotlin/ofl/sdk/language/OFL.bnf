@@ -1,0 +1,20 @@
+{
+  parserClass="ofl.sdk.language.parser.OflParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Ofl"
+  psiImplClassSuffix="Impl"
+  psiPackage="ofl.sdk.language.psi"
+  psiImplPackage="ofl.sdk.language.psi.impl"
+
+  elementTypeHolderClass="ofl.sdk.language.psi.OflTypes"
+  elementTypeClass="ofl.sdk.language.psi.OflElementType"
+  tokenTypeClass="ofl.sdk.language.psi.OflTokenType"
+}
+
+oflFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

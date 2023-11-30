@@ -92,6 +92,7 @@ Current Goals:
   - [ ] Language Server
 - [ ] Linter/Formatter
 - [ ] CLI Tool
+- [ ] Project naming and repository structure
 
 ## Resources
 

@@ -33,6 +33,10 @@
             language="OFL"
             extensions="ofl"/>
 
+        <lang.parserDefinition
+                language="OFL"
+                implementationClass="ofl.sdk.language.OflParserDefinition"/>
+
     </extensions>
     <actions>
         <action id="ofl.ide.plugin.HelloWorldAction" class="ofl.ide.plugin.HelloWorldAction" text="Hello World"
